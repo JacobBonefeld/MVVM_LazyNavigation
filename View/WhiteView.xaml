@@ -1,0 +1,28 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LazyViewNavigation.View"
+             xmlns:ViewModel="clr-namespace:LazyViewNavigation.ViewModel" x:Class="LazyViewNavigation.View.WhiteView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <ViewModel:WhiteViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid Background="White">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="IM WHITE" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" />
+        <Button Content="I WANT TO BE BLACK" Grid.Row="1" FontSize="50" Background="NavajoWhite" Command="{Binding GoToBlackView}"/>
+    </Grid>
+    
+</UserControl>
