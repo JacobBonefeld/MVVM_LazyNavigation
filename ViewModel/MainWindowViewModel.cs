@@ -2,6 +2,7 @@
 using LazyViewNavigation.View;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace LazyViewNavigation.ViewModel
@@ -17,6 +18,7 @@ namespace LazyViewNavigation.ViewModel
 
             // Default viewmodel is the black one
             CurrentViewModel = ViewModelDictionary[Views.BlackView].Value;
+            //CurrentViewModel = ViewModelList[0].Value;
 
             // Listen for view change requests
             RegisterViewChangeRequests();
@@ -43,6 +45,7 @@ namespace LazyViewNavigation.ViewModel
 
         #region Private fields
         private Dictionary<Views, Lazy<BaseViewModel>> ViewModelDictionary;
+        private List<Lazy<BaseViewModel>> ViewModelList;
         #endregion
 
         #region Private methods
@@ -55,6 +58,19 @@ namespace LazyViewNavigation.ViewModel
             Messenger.Default.Register<Views>(this, (Action) =>
            {
                CurrentViewModel = ViewModelDictionary[Action].Value;
+
+               /*
+               switch (Action)
+               {
+                   case Views.BlackView:
+                       CurrentViewModel = ViewModelList[0].Value;
+                       break;
+                   case Views.WhiteView:
+                       CurrentViewModel = ViewModelList[1].Value;
+                       break;
+                       
+               }
+               */
            });
         }
 
@@ -64,11 +80,20 @@ namespace LazyViewNavigation.ViewModel
         /// </summary>
         private void CreateViewModelList()
         {
+            Debug.WriteLine("Starting create list");
             ViewModelDictionary = new Dictionary<Views, Lazy<BaseViewModel>>
             {
-                { Views.BlackView, new Lazy<BaseViewModel>(() => new BlackViewModel()) },
-                { Views.WhiteView, new Lazy<BaseViewModel>(() => new WhiteViewModel()) }
+                { Views.BlackView, new Lazy<BaseViewModel>(()=> new BlackViewModel())},
+                { Views.WhiteView, new Lazy<BaseViewModel>(()=> new WhiteViewModel())}
             };
+            Debug.WriteLine("Ended creating list");
+            /*
+            ViewModelList = new List<Lazy<BaseViewModel>>
+            {
+                new Lazy<BaseViewModel>(() => new BlackViewModel()),
+                new Lazy<BaseViewModel>(() => new WhiteViewModel())
+            };
+            */
         }
 
         #endregion

@@ -7,10 +7,7 @@
              xmlns:ViewModel="clr-namespace:LazyViewNavigation.ViewModel" x:Class="LazyViewNavigation.View.WhiteView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <ViewModel:WhiteViewModel/>
-    </UserControl.DataContext>
-    
+
     <Grid Background="White">
         
         <Grid.ColumnDefinitions>
