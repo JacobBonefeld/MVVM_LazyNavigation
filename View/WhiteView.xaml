@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="IM WHITE" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" />
-        <Button Content="I WANT TO BE BLACK" Grid.Row="1" FontSize="50" Background="NavajoWhite" Command="{Binding GoToBlackView}"/>
+        <Button Content="I WANT TO BE BLACK" Grid.Row="1" FontSize="50" Background="NavajoWhite" Command="{Binding ChangeView}" CommandParameter="BlackView"/>
     </Grid>
     
 </UserControl>

@@ -10,9 +10,6 @@ namespace LazyViewNavigation.ViewModel
 {
     public class WhiteViewModel : BaseViewModel
     {
-        public ICommand GoToBlackView => new Command(() =>
-        {
-            ChangeView(Views.BlackView);
-        });
+
     }
 }

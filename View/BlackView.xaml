@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:LazyViewNavigation.View"
+             xmlns:local="clr-namespace:LazyViewNavigation"
              xmlns:ViewModel="clr-namespace:LazyViewNavigation.ViewModel" x:Class="LazyViewNavigation.View.BlackView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -19,6 +19,6 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="IM BLACK" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="White" />
-        <Button Content="I WANT TO BE WHITE" Grid.Row="1" FontSize="50" Background="NavajoWhite" Command="{Binding GoToWhiteView}"/>
+        <Button Content="GO TO WHITE" Grid.Row="2" FontSize="50" Background="NavajoWhite" Command="{Binding ChangeView}" CommandParameter="WhiteView"/>
     </Grid>
 </UserControl>
